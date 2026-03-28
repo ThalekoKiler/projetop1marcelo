@@ -22,7 +22,7 @@
 ## Demonstração do Fluxo Obrigatório:
 - O aplicativo executa o fluxo completo exigido pela atividade:
 
-1.  **Splash Screen**: Primeira tela exibida com carregamento temporizado de 3 segundos.
+1.  **Splash Screen**: Primeira tela exibida com carregamento temporizado de 8 segundos.
 2.  **Tela de Login**: Interface para entrada de usuários com validação de campos e busca na lista mockada.
 3.  **Tela de Cadastro**: Permite o registro de novos usuários, armazenando os dados em memória através do Model.
 4.  **Retorno ao Login**: Fluxo de navegação que permite ao usuário recém-cadastrado voltar para se autenticar.
