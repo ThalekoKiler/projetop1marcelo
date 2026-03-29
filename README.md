@@ -1,4 +1,7 @@
 # Projeto Flutter - Atividade Avaliativa (P1)
+
+[![Flutter](https://img.shields.io/badge/Framework-Flutter-02569B?logo=flutter)](https://flutter.dev)
+
 - Este projeto consiste em um aplicativo mobile desenvolvido em Flutter que implementa um fluxo completo de autenticação simulada, navegação entre telas e organização arquitetural seguindo o padrão sugerido em aula.
 
 ## Integrantes do Grupo:
