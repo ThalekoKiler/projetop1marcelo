@@ -19,22 +19,22 @@ class _LoginPageState extends State<LoginPage> {
   bool _senhaOculta = true;
 
   void _fazerLogin() {
+    //verifica se o usuario está no Map
     if (_formKey.currentState!.validate()) {
       final usuario = _viewModel.autenticar(
         _emailController.text,
         _senhaController.text,
       );
 
-      if (usuario != null) {
-        Navigator.pushReplacementNamed(context, AppRoutes.home);
-      } else {
+    if (usuario == null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Usuário ou senha incorretos!"),
-            backgroundColor: Colors.red,
-          ),
+        const SnackBar(
+          content: Text("Usuário ou senha incorretos!"),
+          backgroundColor: Colors.red,
+          )
         );
-      }
+    }
+    Navigator.pushReplacementNamed(context, AppRoutes.home);
     }
   }
 
@@ -137,5 +137,8 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+}
+
   }
 }
