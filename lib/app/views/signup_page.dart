@@ -15,6 +15,7 @@ class _SignupPageState extends State<SignupPage> {
   final _emailController = TextEditingController();
   final _senhaController = TextEditingController();
 
+  //Ativa o método verificador de cada objeto TextEditing Controller
   void _cadastrar() {
     if (_formKey.currentState!.validate()) {
       _viewmodel.cadastrarUsuario(
@@ -22,7 +23,7 @@ class _SignupPageState extends State<SignupPage> {
         _emailController.text,
         _senhaController.text,
       );
-
+      //Se todos os testes de verificação retornarem null, ele cadastra no Map e emite uma mensagem na SnackBar(A barra baixa da código)
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Cadastro Realizado!"),
@@ -71,8 +72,17 @@ class _SignupPageState extends State<SignupPage> {
                   labelText: "Email",
                   border: OutlineInputBorder(),
                 ),
-                validator: (value) =>
-                    value!.isEmpty ? "Informe seu Email" : null,
+                validator: (value) {
+                  // Verifica se o campo está vazio
+                  if (value == null || value.isEmpty) {
+                    return "Informe seu Email";
+                  }
+                  // Verifica se NÃO contém @ ou se NÃO termina com .com
+                  if (!value.contains("@") || !value.endsWith(".com")) {
+                    return "Informe um Email válido";
+                  }
+                  return null;
+                },
               ),
               const SizedBox(
                 height: 16,
@@ -92,6 +102,7 @@ class _SignupPageState extends State<SignupPage> {
               SizedBox(
                 width: double.infinity,
                 height: 50,
+                //Botão que executa a função Cadastrar
                 child: ElevatedButton(
                   onPressed: _cadastrar,
                   child: const Text("SALVAR CADASTRO"),
